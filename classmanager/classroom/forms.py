@@ -45,10 +45,10 @@ class TeacherProfileUpdateForm(forms.ModelForm):
 class StudentProfileForm(forms.ModelForm):
     class Meta():
         model = Student
-        fields = ['name', 'roll_no', 'phone', 'email']
+        fields = ['name', 'student_id', 'phone', 'email']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'answer'}),
-            'roll_no': forms.NumberInput(attrs={'class': 'answer'}),
+            'student_id': forms.NumberInput(attrs={'class': 'answer'}),
             'phone': forms.NumberInput(attrs={'class': 'answer'}),
             'email': forms.EmailInput(attrs={'class': 'answer'}),
         }
@@ -59,4 +59,4 @@ class StudentProfileForm(forms.ModelForm):
 class StudentProfileUpdateForm(forms.ModelForm):
     class Meta():
         model = Student
-        fields = ['name', 'roll_no', 'email', 'phone', 'student_profile_pic']
+        fields = ['name', 'student_id', 'email', 'phone', 'student_profile_pic']

@@ -24,7 +24,7 @@
     <div class="content">
       <h3>{{ class.name }}</h3>
       <p><i class="far fa-user"></i> Username: {{ class.user.username }}</p>
-      <p><i class="fal fa-user-tag"></i> Roll No.: {{ class.roll_no }}</p>
+      <p><i class="fal fa-user-tag"></i> Roll No.: {{ class.student_id }}</p>
       <p><i class="far fa-phone"></i> Phone: {{ class.phone }}</p>
       <p><i class="far fa-envelope-open-text"></i> Email ID: {{ class.email }}</p>
       <a href="{% url 'classroom:add_class' pk=class.pk %}"><p class="add-button">ADD</p> </a>

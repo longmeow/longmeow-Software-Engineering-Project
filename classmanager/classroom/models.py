@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 from django.conf import settings
-# Create your models here.
 
 
 class User(AbstractUser):
@@ -15,7 +14,7 @@ class Student(models.Model):
         User, on_delete=models.CASCADE, primary_key=True, related_name='Student')
     name = models.CharField(max_length=250)
     email = models.EmailField(max_length=254)
-    roll_no = models.CharField(max_length=50)
+    student_id = models.CharField(max_length=50)
     department = models.CharField(max_length=54)
     phone = models.IntegerField()
     student_profile_pic = models.ImageField(
@@ -28,7 +27,7 @@ class Student(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['roll_no']
+        ordering = ['student_id']
 
 
 class Teacher(models.Model):
