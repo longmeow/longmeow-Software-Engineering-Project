@@ -1,0 +1,39 @@
+{% extends "classroom/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="class-list">
+<div class="container">
+  {% if messages %}
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    {% for message in messages %}
+      <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+    {% endfor %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+  <form method='GET' action="{% url 'classroom:class_list' %}" class="searchme">
+    <p>Search class: <input type='search' name='q' placeholder='Search'></p>
+  </form>
+  <div class="row">
+  {% for class in classs_list %}
+  <div class="col-6 col-md-4">
+  <div class="class-box">
+    <div class="content">
+      <h3>{{ class.name }}</h3>
+      <p><i class="far fa-user"></i> Username: {{ class.user.username }}</p>
+      <p><i class="fal fa-user-tag"></i> Roll No.: {{ class.roll_no }}</p>
+      <p><i class="far fa-phone"></i> Phone: {{ class.phone }}</p>
+      <p><i class="far fa-envelope-open-text"></i> Email ID: {{ class.email }}</p>
+      <a href="{% url 'classroom:add_class' pk=class.pk %}"><p class="add-button">ADD</p> </a>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+  </div>
+</div>
+</div>
+
+{% endblock %}
